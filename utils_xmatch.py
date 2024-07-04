@@ -23,7 +23,7 @@ def cross_match_loop(wsi, gaia, component_selection):
             gaia_id, index, flag = component_selection( matches )
 
         except:
-            gaia_id, index, flag = '', '$', '$' # flag if there are no potential matches
+            gaia_id, index, flag = '', np.nan, '$' # flag if there are no potential matches
 
         gaia_ids.append( gaia_id )
         indexes.append( index )

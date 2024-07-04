@@ -1,3 +1,4 @@
+import numpy as np
 import pandas as pd
 
 # take indexes selected during cross match and build a dataframe of the results
@@ -30,16 +31,16 @@ def generate_xmatch_df(gaia, indexes, flags):
             try:
                 pms.append( match['gaia_pm'] )
             except:
-                pms.append( '' )
+                pms.append( np.nan )
             
         # if no match was found, the '$' flag will raise an indexing error
         # append an empty place holder
         except:
             ids.append( '' )
-            mag.append( '' )
-            dms.append( '' )
-            sep.append( '' )
-            pms.append( '' )
+            mag.append( np.nan )
+            dms.append( np.nan )
+            sep.append( np.nan )
+            pms.append( np.nan )
 
     # dataframe of xmatches to return
     # add columns to wsi as needed

@@ -29,7 +29,7 @@ def total_pm(ras, decs):
             # if it fails to convert to float, the target is missing pm data
             # flag it instead
             except:
-                total_pms.append( '$' )
+                total_pms.append( np.nan )
                 
         return total_pms
     
