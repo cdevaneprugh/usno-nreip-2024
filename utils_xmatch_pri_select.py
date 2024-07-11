@@ -5,18 +5,24 @@ import pandas as pd
 # picks the brighter of the two closest matches if first condition isnt true
 def primary_selection(matches):
     
-        # find the index of the target with the smallest dm and separation
-        min_sep_index = matches['target_sep'].idxmin()
-        min_dm_index  = matches['target_dm'].idxmin()
+        # # find the index of the target with the smallest dm and separation
+        # min_sep_index = matches['target_sep'].idxmin()
+        # min_dm_index  = matches['target_dm'].idxmin()
     
-        # if these are the same star, select it as our match
-        if  min_sep_index == min_dm_index:
+        # # if these are the same star, select it as our match
+        # if  min_sep_index == min_dm_index:
             
-            # set the variables for the match
-            gaia_id = matches['gaia_id'].iloc[ min_sep_index ]
-            index = matches['original_index'].iloc[ min_sep_index ]
+        #     # set the variables for the match
+        #     gaia_id = matches['gaia_id'].iloc[ min_sep_index ]
+        #     index = matches['original_index'].iloc[ min_sep_index ]
+        #     flag = '.'
+            
+        #     return gaia_id, index, flag
+
+        if len(matches)==1:
+            gaia_id = matches['gaia_id'].iloc[ 0 ]
+            index = matches['original_index'].iloc[ 0 ]
             flag = '.'
-            
             return gaia_id, index, flag
 
         # if not, pick the brightest target out of the two closest matches

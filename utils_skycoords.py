@@ -1,3 +1,4 @@
+import math
 import numpy as np
 import pandas as pd
 
@@ -18,7 +19,7 @@ def set_wds_skycoord(df, i):
     
     # flag to indicate secondary propagation PM source
     # no flag means secondary has its own pm data
-    flag = '.'
+    # flag = '.'
 
     # define primary star values
     primary_coords = df.wds_coord1.iloc[i] 
@@ -67,6 +68,6 @@ def set_wds_skycoord(df, i):
         )
         
         # set flag if we use primary's pm
-        flag = '!'
+        # flag = '!'
     
-    return primary, secondary, flag
+    return primary, secondary#, flag

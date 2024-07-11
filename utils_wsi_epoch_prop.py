@@ -21,7 +21,7 @@ def wsi_J2016_prop( wsi ):
     pri_J2016 = []
     sec_J2000 = []
     sec_J2016 = []
-    flags = []
+    # flags = []
     
     # J2016 time for astropy space motion method
     J2016 = Time(2016.0, format='jyear', scale='tcb')
@@ -30,7 +30,7 @@ def wsi_J2016_prop( wsi ):
     for i in range( len(wsi) ):
 
         # skycoord object for current index
-        pri, sec, flag = set_wds_skycoord( wsi, i )
+        pri, sec = set_wds_skycoord( wsi, i )
         
         # propogate motion
         pri_prop = pri.apply_space_motion( J2016 )
@@ -41,7 +41,7 @@ def wsi_J2016_prop( wsi ):
         pri_J2016.append( [pri_prop.ra.degree, pri_prop.dec.degree] )
         sec_J2000.append( [sec.ra.degree, sec.dec.degree] )
         sec_J2016.append( [sec_prop.ra.degree, sec_prop.dec.degree] )
-        flags.append( flag )
+        # flags.append( flag )
 
     # add results to wsi data frame
     wsi['wds_ra1_J2000'] =  [x[0] for x in pri_J2000]
@@ -52,6 +52,6 @@ def wsi_J2016_prop( wsi ):
     wsi['wds_dec1_J2016'] = [x[1] for x in pri_J2016]
     wsi['wds_ra2_J2016']  = [x[0] for x in sec_J2016]
     wsi['wds_dec2_J2016'] = [x[1] for x in sec_J2016]
-    wsi['epoch_prop_flag'] = flags
+    # wsi['epoch_prop_flag'] = flags
 
     return wsi

@@ -41,7 +41,7 @@ def A_search(wds_id, A):
 def AB_search(wds_id, AB):
 
     # split components
-    A,B = AB
+    A,B = wds_comp
     
     # try to find match for A
     try:
@@ -53,7 +53,7 @@ def AB_search(wds_id, AB):
     except: 
         try:
             pri = query_gaia_by_wds( 'WDS J' + wds_id + AB )
-            pri_flag = '.' # flag that first choice wasnt found
+            pri_flag = '!' # flag that first choice wasnt found
             return pri, pri_flag
             
         # if nothing is still found, flag it
