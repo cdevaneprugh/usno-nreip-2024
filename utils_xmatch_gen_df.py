@@ -13,6 +13,8 @@ def generate_xmatch_df(gaia, indexes, flags):
     dms = []
     sep = []
     pms = []
+    ras = []
+    dcs = []
 
     # loop through indexes of matches that correspond to original crossmatch catalog
     for index in indexes:
@@ -26,6 +28,8 @@ def generate_xmatch_df(gaia, indexes, flags):
             mag.append( match['gaia_mag'] )
             dms.append( match['target_dm'] )
             sep.append( match['target_sep'] )
+            ras.append( match['gaia_ra'] )
+            dcs.append( match['gaia_dec'] )
     
             # pm data may not be available, try to add
             try:
@@ -41,6 +45,8 @@ def generate_xmatch_df(gaia, indexes, flags):
             dms.append( np.nan )
             sep.append( np.nan )
             pms.append( np.nan )
+            ras.append( np.nan )
+            dcs.append( np.nan )
 
     # dataframe of xmatches to return
     # add columns to wsi as needed
@@ -48,6 +54,8 @@ def generate_xmatch_df(gaia, indexes, flags):
                         'gaia_id':ids,
                         'gaia_mag':mag,
                         'gaia_pm':pms,
+                        'gaia_ra':ras,
+                        'gaia_dec':dcs,
                         'target_dm':dms,
                         'target_sep':sep,
                         'gaia_flag':flags})
