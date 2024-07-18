@@ -44,14 +44,14 @@ def wsi_J2016_prop( wsi ):
         # flags.append( flag )
 
     # add results to wsi data frame
-    wsi['wds_ra1_J2000'] =  [x[0] for x in pri_J2000]
-    wsi['wds_dec1_J2000'] = [x[1] for x in pri_J2000]
-    wsi['wds_ra2_J2000'] =  [x[0] for x in sec_J2000]
-    wsi['wds_dec2_J2000'] = [x[1] for x in sec_J2000]
-    wsi['wds_ra1_J2016']  = [x[0] for x in pri_J2016]
-    wsi['wds_dec1_J2016'] = [x[1] for x in pri_J2016]
-    wsi['wds_ra2_J2016']  = [x[0] for x in sec_J2016]
-    wsi['wds_dec2_J2016'] = [x[1] for x in sec_J2016]
+    # wsi['wds_ra1_J2000'] =  [x[0] for x in pri_J2000]
+    # wsi['wds_dec1_J2000'] = [x[1] for x in pri_J2000]
+    # wsi['wds_ra2_J2000'] =  [x[0] for x in sec_J2000]
+    # wsi['wds_dec2_J2000'] = [x[1] for x in sec_J2000]
+    wsi['wds_ra1']  = [x[0] for x in pri_J2016]
+    wsi['wds_dec1'] = [x[1] for x in pri_J2016]
+    wsi['wds_ra2']  = [x[0] for x in sec_J2016]
+    wsi['wds_dec2'] = [x[1] for x in sec_J2016]
     # wsi['epoch_prop_flag'] = flags
 
     return wsi

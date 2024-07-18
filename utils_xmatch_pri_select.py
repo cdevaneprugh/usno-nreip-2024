@@ -20,7 +20,7 @@ def primary_selection(matches):
         #     return gaia_id, index, flag
 
         if len(matches)==1:
-            gaia_id = matches['gaia_id'].iloc[ 0 ]
+            gaia_id = matches['designation'].iloc[ 0 ]
             index = matches['original_index'].iloc[ 0 ]
             flag = '.'
             return gaia_id, index, flag
@@ -33,10 +33,10 @@ def primary_selection(matches):
             matches = matches.sort_values('target_sep').iloc[:2].reset_index(drop=True)
 
             # get index for the brighter one
-            min_mag_index = matches['gaia_mag'].idxmin()
+            min_mag_index = matches['phot_g_mean_mag'].idxmin()
             
             # set the variables for the match
-            gaia_id = matches['gaia_id'].iloc[ min_mag_index ]
+            gaia_id = matches['designation'].iloc[ min_mag_index ]
             index = matches['original_index'].iloc[ min_mag_index ]
             flag = '!'
             

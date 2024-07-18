@@ -9,7 +9,7 @@ warnings.simplefilter('ignore', category=AstropyWarning)
 pd.set_option('mode.chained_assignment', None)
 
 # load wsi
-wsi = pd.read_csv('data/wsi24.csv').replace({'wds_comp':np.NaN},'AB')
+#wsi = pd.read_csv('data/wsi24.csv').replace({'wds_comp':np.NaN},'AB')
 
 # ids and comps in wds
 ids = list( wsi.wds_id )
@@ -67,4 +67,4 @@ wsi['sb_flg1'] = sim_pri_flg
 wsi['sb_flg2'] = sim_sec_flg
 
 # export csv
-wsi.to_csv('data/wsi24.sb.csv', index=False)
+#wsi.to_csv('data/wsi24.sb.csv', index=False)
