@@ -3,7 +3,7 @@ import pandas as pd
 import astropy.units as u
 from astropy.coordinates import SkyCoord
 
-# identical to primary selection, but selects dimmest star out of two closest
+
 def secondary_selection( primary, matches ):
     
         # if there's only one match, choose it ##################################################        
